@@ -7,8 +7,6 @@ A SID (Security IDentifier) is a unique identifier that is assigned to users, gr
 Example:
 ```bash
 $ ./bin2sid --sid 0105000000000005150000005b7bb0f398aa2245ad4a1ca451040000
-```
-```text
 [*] SID: S-1-5-21-4088429403-1159899800-2753317549-1105
 ```
 
