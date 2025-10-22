@@ -2,7 +2,7 @@
 
 **bin2sid** is a script that allows you to convert SID from binary to string format.
 
-A SID (Security IDentifier) is a unique identifier that is assigned to users, groups, computers, and other objects when they are created in Windows and Acrive Directory domain.
+A SID (Security IDentifier) is a unique identifier that is assigned to users, groups, computers, and other objects when they are created in Windows and Active Directory domain.
 
 Example:
 ```bash
