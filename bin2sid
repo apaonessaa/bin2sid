@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+from argparse import ArgumentParser 
+
+parser = ArgumentParser(
+        prog="bin2sid", 
+        description="Convert SID from binary to string format.",
+        epilog="Example: ./bi2sid --sid '0105000...0000'")
+
+parser.add_argument("--sid",
+                    help="SID in binary format.",
+                    type=str, required=True)
+
+args = parser.parse_args()
+
+bSID=bytes.fromhex(args.sid)
+
+rev=int(bSID[0])
+N=int(bSID[1]) # num of dashes - 2
+ide=int.from_bytes(bSID[2:8], 'big')
+
+start=8; end=start+(N-1)*4 # N-1 are the dashes to define for did?
+
+did=[ int.from_bytes(bSID[i:i+4], 'little') for i in range(start,end, 4) ]
+rid=int.from_bytes(bSID[end:], 'little')
+
+SID=f"S-{rev}-{ide}-" + "".join(f"{d}-" for d in did) + f"{rid}"
+
+print(f"[*] SID: {SID}")
